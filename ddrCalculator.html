@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>DDR Winner Calculator 2014</title>
+</head>
+<script>
+function winner(){
+	var p1Marvellous = document.getElementById("p1Marvellous").value;
+	var p2Marvellous = document.getElementById("p2Marvellous").value;
+	var p1Perfect = document.getElementById("p1Perfect").value;
+	var p2Perfect = document.getElementById("p2Perfect").value;
+	var p1Great = document.getElementById("p1Great").value;
+	var p2Great = document.getElementById("p2Great").value;
+	var p1Ok = document.getElementById("p1Ok").value;
+	var p2Ok = document.getElementById("p2Ok").value;
+	var winner = "";
+	
+	//Marv*3, Perf*2, Great*1, OK*1
+	var p1FinalScore = (p1Marvellous * 3)+(p1Perfect*2)+p1Great+p1Ok;
+	var p2FinalScore = (p2Marvellous * 3)+(p2Perfect*2)+p2Great+p2Ok;
+	
+	if(p1FinalScore > p2FinalScore){
+		winner = "And the winner is... <h1>Player 1!</h1>";
+	}
+	else if(p1FinalScore < p2FinalScore){
+		winner = "And the winner is... <h1>Player 2!</h1>";
+	}
+	else{
+		winner = "And the winner is... <h1>EVERYONE!  IT'S A TIE!!! :O</h1>";
+	}
+	
+	document.getElementById("p1FinalScore").value = p1FinalScore;
+	document.getElementById("p2FinalScore").value = p2FinalScore;
+	document.getElementById("result").innerHTML = winner;
+}
+</script>
+
+<body>
+<h1>DDR Winner Calculator</h1>
+<table border="0">
+<tr><td>Player 1</td><td></td><td>Player 2</td></tr>
+<tr><td><input type="text" id="p1Marvellous"></td><td><center>Marvellous</center></td><td><input type="text" id="p2Marvellous"></td></tr>
+<tr><td><input type="text" id="p1Perfect"></td><td><center>Perfect</center></td><td><input type="text" id="p2Perfect"></td></tr>
+<tr><td><input type="text" id="p1Great"></td><td><center>Great</center></td><td><input type="text" id="p2Great"></td></tr>
+<tr><td><input type="text" id="p1Ok"><td><center>OK</center></td><td><input type="text" id="p2Ok"></td></tr>
+<tr><td><input type="text" id="p1FinalScore"></td><td><center>FINAL SCORES</center></td><td><input type="text" id="p2FinalScore"></td></tr>
+</table>
+
+<br />
+<button type="button" onclick="winner()">Calculate the winner!</button>
+
+<p id="result">And the winner is...</p>
+
+
+
+
+</body>
+
+</html>
